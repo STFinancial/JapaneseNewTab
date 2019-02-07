@@ -1,0 +1,15 @@
+{
+	"name": "Japanese Vocab Extension",
+	"version": "1.0",
+	"description": "Takes a random JLPT N5 vocab word from jlearn.net",
+	"manifest_version": 2,
+	"chrome_url_overrides": {
+		"newtab": "newtab.html"
+	},
+	"content_scripts": [{
+		"matches": ["<all_urls>", "http://*/*"],
+		"js": ["jquery.js", "script.js"],
+		"css": ["styles.css"]
+	}],
+	"permissions":["tabs"]
+}
