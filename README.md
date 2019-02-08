@@ -4,6 +4,6 @@ A Chrome extension that fetches a random JLPT N5 word from jlearn.net, and displ
 
 TODOS:
 
-* Add option to fetch JLPT N1-4 words
 * Grab example sentences
 * Add part of speech hover
+* Add JLPT level indicator?
