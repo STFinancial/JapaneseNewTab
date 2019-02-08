@@ -24,11 +24,8 @@ function restore_options() {
   });
 
   $("#save").click(function(event) {
-	save_options();
+    save_options();
   });
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
-// $("#save").click(function(event) {
-// 	save_options();
-// });
