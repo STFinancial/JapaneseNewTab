@@ -22,7 +22,7 @@ function buildDefLine(lineElement) {
 	return html;
 }
 
-// TODO(stfinancial): Add options for romaji and getting random words from other levels.
+// TODO(stfinancial): Add options for getting random words from other levels.
 // TODO(stfinancial): Add example sentences.
 // TODO(stfinancial): Add hover tooltips to the part of speech section
 function getWord() {
@@ -38,7 +38,8 @@ function getWord() {
 		chrome.storage.sync.get("showRomaji", function(settings) {
 			var html = $.parseHTML(data);
 			console.log(html);
-			var kana = $(html).find(".reb-reading").last().text();
+			var kana = $(html).find(".reb-reading").first().children(":first").text();
+			// console.log($(html).find(".reb-reading").first().text());
 			console.log(kana);
 			if (!settings.showRomaji) {
 				kana = kana.replace(/(?<=\S)( |\n).*/g,''); // Remove romaji.
