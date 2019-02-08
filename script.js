@@ -34,13 +34,21 @@ function getWord() {
 		var kanjihtml = "<span id='kanjitext'>" + kanjiReading + "</span>";
 		$("#kanjibox").html(kanjihtml);
 
-
 		// Get Hiragana Data
-		var hiragana = $(html).find(".reb-reading").last().text();
-		var firstWord = hiragana.replace(/(?<=\S)( |\n).*/g,''); // Remove romaji. This should be part of extension options.
-		firstWord = firstWord.replace(/\s/g,'');
-		var kanahtml = "<span id='kanatext'>" + firstWord + "</span>";
-		$("#kanabox").html(kanahtml);
+		chrome.storage.sync.get("showRomaji", function(settings) {
+			var html = $.parseHTML(data);
+			console.log(html);
+			var kana = $(html).find(".reb-reading").last().text();
+			console.log(kana);
+			if (!settings.showRomaji) {
+				kana = kana.replace(/(?<=\S)( |\n).*/g,''); // Remove romaji.
+			}
+			console.log(kana);
+			kana = kana.replace(/ /g,'');
+			console.log(kana);
+			var kanahtml = "<span id='kanatext'>" + kana + "</span>";
+			$("#kanabox").html(kanahtml);
+		});
 
 		// Get word definitions
 		var definitions = $(html).find(".sensegloss");

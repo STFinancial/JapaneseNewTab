@@ -1,0 +1,14 @@
+#save {
+	margin-top: 10px;
+	display: inline-block;
+	/*width: 10%;*/
+}
+
+#romaji {
+	/*padding-bottom: 5px;*/
+}
+
+#status {
+	display: inline-block;
+	margin-left: 4px;
+}

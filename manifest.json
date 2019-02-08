@@ -8,8 +8,12 @@
 	},
 	"content_scripts": [{
 		"matches": ["<all_urls>", "http://*/*"],
-		"js": ["jquery.js", "script.js"],
-		"css": ["styles.css"]
+		"js": ["jquery.js", "script.js", "options.js"],
+		"css": ["styles.css", "options.css"]
 	}],
-	"permissions":["tabs"]
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": false
+	},
+	"permissions": ["storage"]
 }
