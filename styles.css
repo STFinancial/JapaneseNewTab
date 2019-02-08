@@ -44,7 +44,9 @@ ol li {
 }
 
 #definitionbox li {
-	width: 100%;
+	width: 94%;
+	margin-right: 2%;
+	margin-left: 4%;
 	text-align: left;
 	margin-bottom: 5px;
 }
