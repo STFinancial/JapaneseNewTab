@@ -60,6 +60,7 @@ ol li {
 	border-radius: 25px 25px 25px 25px;
 	padding-left: 5px;
 	padding-right: 5px;
+	padding-bottom: 1px;
 	margin-right: 3px;
 	background-color: #e6fff2;
 }

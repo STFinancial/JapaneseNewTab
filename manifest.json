@@ -1,6 +1,6 @@
 {
 	"name": "Japanese Vocab Extension",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Takes a random JLPT N5 vocab word from jlearn.net",
 	"manifest_version": 2,
 	"chrome_url_overrides": {
