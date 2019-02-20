@@ -7,30 +7,48 @@ ol li {
 	list-style-position: inside;
 }
 
-#kanjibox {
+#kanji {
 	display: inline-block;
 	width: 100%;
 	margin-top: 25vh;
 	height: 8vh;
 	font-size: 6vh;
 	text-align: center;
+	text-shadow: -1px 2px 2px #cccccc;
 }
 
-#kanjibox > span {
+#kanji > span {
 	width: 100%;
 }
 
-#kanabox {
+#kana {
 	display: inline-block;
 	width: 100%;
 	height: 5vh;
 	font-size: 3.5vh;
 	text-align: center;
 	margin-bottom: 1vh;
+	text-shadow: -1px 2px 2px #cccccc;
 }
 
-#kanabox > span {
+#kana > span {
 	width: 100%;
+}
+
+#showdefbutton {
+	display: none;
+	cursor: pointer;
+	width: 20%;
+	margin-left: 40%;
+	margin-right: 40%;
+	height: 3vh;
+	padding-top: 0.5vh;
+	background-color: #e6fff2;
+}
+
+#showdefbutton > span {
+	margin-top: 5px;
+	font-size: 2vh;
 }
 
 #definitionbox {
@@ -38,9 +56,8 @@ ol li {
 	width: 40%;
 	margin-left: 30%;
 	margin-right: 30%;
-	border: 2px dashed #e6e6e6;
 	font-size: 2vh;
-	text-align: center;
+	background-color: #eeeeee;
 }
 
 #definitionbox li {
@@ -55,12 +72,19 @@ ol li {
 	margin-left: 3px;
 }
 
+.box {
+	text-align: center;
+	box-shadow: -2px 3px 2px #cccccc;
+	border: 2px dashed #262626;
+}
+
 .pos {
 	border: 1px solid #000000;
 	border-radius: 25px 25px 25px 25px;
-	padding-left: 5px;
+	padding-left: 6px;
 	padding-right: 5px;
 	padding-bottom: 1px;
 	margin-right: 3px;
 	background-color: #e6fff2;
+	box-shadow: -1px 2px 1px #cccccc;
 }

@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 	getWord();
+	bindClick();
 });
 
 function buildDefLine(lineElement) {
@@ -22,11 +23,19 @@ function buildDefLine(lineElement) {
 	return html;
 }
 
+function bindClick() {
+	$('#showdefbutton').on('click', () => {
+		$("#definitionbox").css('display', 'inline-block');
+		$("#showdefbutton").css('display', 'none');
+	});
+}
+
+
 // TODO(stfinancial): Add options for getting random words from other levels.
 // TODO(stfinancial): Add example sentences.
 // TODO(stfinancial): Add hover tooltips to the part of speech section
 function getWord() {
-	chrome.storage.sync.get(["showRomaji", "n5", "n4", "n3", "n2", "n1"], function(settings) {
+	chrome.storage.sync.get(["showRomaji", "hideDef", "n5", "n4", "n3", "n2", "n1"], function(settings) {
 		var url = "";
 		if (!(settings.n5 || settings.n4 || settings.n3 || settings.n2 || settings.n1)) {
 			// If they unchecked all levels, default to N5
@@ -46,7 +55,7 @@ function getWord() {
 			var kanjis = $(html).find(".keb-reading").first().children()[0];
 			var kanjiReading = $(kanjis).text().replace(/\s/g,'');
 			var kanjihtml = "<span id='kanjitext'>" + kanjiReading + "</span>";
-			$("#kanjibox").html(kanjihtml);
+			$("#kanji").html(kanjihtml);
 
 			// Get Hiragana Data
 			var kana = $(html).find(".reb-reading").first().children(":first").text();
@@ -55,7 +64,7 @@ function getWord() {
 			}
 			kana = kana.replace(/ /g,'');
 			var kanahtml = "<span id='kanatext'>" + kana + "</span>";
-			$("#kanabox").html(kanahtml);
+			$("#kana").html(kanahtml);
 			
 
 			// Get word definitions
@@ -72,6 +81,12 @@ function getWord() {
 			definitionhtml += "</ol>";
 			console.log(definitionhtml);
 			$("#definitionbox").html(definitionhtml);
+
+			// Hide definition if option is enabled.
+			if (settings.hideDef) {
+				$("#definitionbox").css('display', 'none');
+				$("#showdefbutton").css('display', 'inline-block');
+			}
 
 			// TODO(stfinancial): Add example sentences
 		});

@@ -1,6 +1,7 @@
 // Saves options to chrome.storage
 function save_options() {
   var romaji = document.getElementById('romaji').checked;
+  var hidden = document.getElementById('hidden').checked;
   var n5 = document.getElementById('n5').checked;
   var n4 = document.getElementById('n4').checked;
   var n3 = document.getElementById('n3').checked;
@@ -8,6 +9,7 @@ function save_options() {
   var n1 = document.getElementById('n1').checked;
   chrome.storage.sync.set({
     showRomaji: romaji,
+    hideDef: hidden,
     n5: n5,
     n4: n4,
     n3: n3,
@@ -29,6 +31,7 @@ function restore_options() {
   // Use default value showRomaji = false.
   chrome.storage.sync.get({
     showRomaji: false,
+    hideDef: false,
     n5: true,
     n4: false,
     n3: false,
@@ -36,6 +39,7 @@ function restore_options() {
     n1: false,
   }, function(items) {
     document.getElementById('romaji').checked = items.showRomaji;
+    document.getElementById('hidden').checked = items.hideDef;
     document.getElementById('n5').checked = items.n5;
     document.getElementById('n4').checked = items.n4;
     document.getElementById('n3').checked = items.n3;
